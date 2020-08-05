@@ -3,15 +3,17 @@ public class EmpWage
 	public static final int rateperHr = 20;
 	public static final int fullTime = 1;
 	public static final int partTime = 2;
+	public static final int maxDays = 20;
+	public static final int maxHr = 100;
 
    public static void main(String args[])
    {
 		int workHr,wage;
-		int Salary = 0;
+		int Salary = 0, totHr = 0, totDays = 0;
 
 		System.out.println("Welcome to Employee Wage Calculation !!");
 
-		for (int i=0; i<20; i++)
+		while ( totHr < maxHr && totDays < maxDays )
 		{
 			int empCheck = (int) Math.floor(Math.random() * 10 ) % 3;
    	   switch (empCheck)
@@ -25,8 +27,10 @@ public class EmpWage
    	      default:
       	      workHr=0;
       	}
+			totDays++;
+			totHr += workHr;
       	wage = workHr * rateperHr;
-			System.out.println("Day "+ (i+1) + " wage is " + wage);
+			System.out.println("Day "+ totDays + " wage is " + wage);
 			Salary += wage;
 		}
 
