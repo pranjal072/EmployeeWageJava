@@ -1,28 +1,31 @@
 public class EmpWage
 {
+	public static final int rateperHr = 20;
+	public static final int fullTime = 1;
+	public static final int partTime = 2;
+
    public static void main(String args[])
    {
-		int fullTime = 1, partTime = 2;
 		int workHr,wage;
-		int rateperHr = 20;
+
 		System.out.println("Welcome to Employee Wage Calculation !!");
-		double empCheck = Math.floor(Math.random() * 10 ) % 3;
-		if (empCheck == fullTime)
-		{
-			System.out.println("Employee is Present - Full Time");
-			workHr = 8;
-		}
-		else if ( empCheck == partTime )
+
+		int empCheck = (int) Math.floor(Math.random() * 10 ) % 3;
+      switch (empCheck)
       {
-         System.out.println("Employee is Present - Part Time");
-         workHr=4;
+         case fullTime:
+            System.out.println("Employee is Present - Full Time");
+            workHr=8;
+            break;
+         case partTime:
+            System.out.println("Employee is Present - Part Time");
+            workHr=4;
+            break;
+         default:
+            System.out.println("Employee is Absent");
+            workHr=0;
       }
-		else
-		{
-			System.out.println("Employee is Absent");
-			workHr = 0;
-		}
-		wage = workHr*rateperHr;
-		System.out.println("Wage for today is : " + wage);
+      wage = workHr * rateperHr;
+      System.out.println(wage);
 	}
 }
