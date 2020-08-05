@@ -7,25 +7,29 @@ public class EmpWage
    public static void main(String args[])
    {
 		int workHr,wage;
+		int Salary = 0;
 
 		System.out.println("Welcome to Employee Wage Calculation !!");
 
-		int empCheck = (int) Math.floor(Math.random() * 10 ) % 3;
-      switch (empCheck)
-      {
-         case fullTime:
-            System.out.println("Employee is Present - Full Time");
-            workHr=8;
-            break;
-         case partTime:
-            System.out.println("Employee is Present - Part Time");
-            workHr=4;
-            break;
-         default:
-            System.out.println("Employee is Absent");
-            workHr=0;
-      }
-      wage = workHr * rateperHr;
-      System.out.println(wage);
+		for (int i=0; i<20; i++)
+		{
+			int empCheck = (int) Math.floor(Math.random() * 10 ) % 3;
+   	   switch (empCheck)
+      	{
+         	case fullTime:
+            	workHr=8;
+   	         break;
+      	   case partTime:
+         	   workHr=4;
+	            break;
+   	      default:
+      	      workHr=0;
+      	}
+      	wage = workHr * rateperHr;
+			System.out.println("Day "+ (i+1) + " wage is " + wage);
+			Salary += wage;
+		}
+
+		System.out.println("Total Salary of this Month is : " + Salary);
 	}
 }
